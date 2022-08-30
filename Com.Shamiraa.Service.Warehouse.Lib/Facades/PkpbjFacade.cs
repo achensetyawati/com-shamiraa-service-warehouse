@@ -47,7 +47,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         public Tuple<List<SPKDocs>, int, Dictionary<string, string>> Read(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
         {
 
-            //IQueryable<SPKDocs> Query = this.dbSet.Include(x=>x.Items).Where(x => !x.PackingList.Contains("BTS-FN"));
+            //IQueryable<SPKDocs> Query = this.dbSet.Include(x=>x.Items).Where(x => !x.PackingList.Contains("SHM-FN"));
             
             IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items);
 
@@ -73,7 +73,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
         public Tuple<List<SPKDocs>, int, Dictionary<string, string>> ReadPackingList(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
         {
-            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => !x.PackingList.Contains("BTS-FN"));
+            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => !x.PackingList.Contains("SHM-FN"));
             //IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(i => i.DestinationCode.Contains("GDG"));
             //IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items);
 
@@ -99,8 +99,8 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
         public Tuple<List<SPKDocs>, int, Dictionary<string, string>> ReadPackingRTT(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
         {
-            //IQueryable<SPKDocs> Query = this.dbSet.Include(x=>x.Items).Where(x => !x.PackingList.Contains("BTS-FN"));
-            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.Reference.Contains("BTS-KB/RTT"));
+            //IQueryable<SPKDocs> Query = this.dbSet.Include(x=>x.Items).Where(x => !x.PackingList.Contains("SHM-FN"));
+            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.Reference.Contains("SHM-KB/RTT"));
 
             List<string> searchAttributes = new List<string>()
             {
@@ -124,7 +124,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
         public Tuple<List<SPKDocs>, int, Dictionary<string, string>> ReadForUpload(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
         {
-            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.PackingList.Contains("BTS-FN"));
+            IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.PackingList.Contains("SHM-FN"));
 
             List<string> searchAttributes = new List<string>()
             {
@@ -147,7 +147,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         }
 		public Tuple<List<SPKDocsViewModel>, int, Dictionary<string, string>> ReadForUploadNew(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
 		{
-			IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.PackingList.Contains("BTS-FN"));
+			IQueryable<SPKDocs> Query = this.dbSet.Include(x => x.Items).Where(x => x.PackingList.Contains("SHM-FN"));
 			IQueryable<SPKDocsViewModel> QueryV = from a in Query
 												  select new SPKDocsViewModel
 												  {
@@ -256,8 +256,8 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                 {
                     EntityExtension.FlagForCreate(model, username, USER_AGENT);
 
-                    string packingList = GenerateCode("BTS-KB/PLB");
-                    string code = GenerateCode("BTS-PK/PBJ");
+                    string packingList = GenerateCode("SHM-KB/PLB");
+                    string code = GenerateCode("SHM-PK/PBJ");
                     string password = String.Join("",GenerateCode(DateTime.Now.ToString("dd")).Split("/"));
                     //(generateCode(("0" + date.getDate()).slice(-2))).split('/').join('')
 
@@ -636,7 +636,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
             SPKDocsViewModel sPKDocsViews = new SPKDocsViewModel
             {
-                code = GenerateCode("BTS-PK/PBJ"),
+                code = GenerateCode("SHM-PK/PBJ"),
                 date = date,
                 packingList = csv.FirstOrDefault().PackingList,
                 password = csv.FirstOrDefault().Password,

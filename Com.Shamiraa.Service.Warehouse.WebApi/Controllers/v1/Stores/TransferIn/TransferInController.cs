@@ -18,7 +18,7 @@ namespace Com.Shamiraa.Service.Warehouse.WebApi.Controllers.v1.Stores.TransferIn
 {
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/stores/bts-tb-bbt")]
+    [Route("v{version:apiVersion}/stores/shm-tb-bbt")]
     [Authorize]
     public class TransferInController : Controller
     {
