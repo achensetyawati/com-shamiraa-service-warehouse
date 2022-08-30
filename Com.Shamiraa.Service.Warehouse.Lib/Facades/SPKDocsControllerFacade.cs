@@ -291,7 +291,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
                     SPKDocs data = new SPKDocs()
                     {
-                        Code = GenerateCode("BTS-PK/PBJ"),
+                        Code = GenerateCode("SHM-PK/PBJ"),
                         Date = viewModel.FinishingOutDate,
                         DestinationId = (long)viewModel.DestinationStorageId,
                         DestinationCode = viewModel.DestinationStorageCode,
@@ -414,11 +414,11 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         //    return Inserted;
         //}
 
-        public string GeneratePackingList() // nomor urut/BTS-FN/bulan/tahun
+        public string GeneratePackingList() // nomor urut/SHM-FN/bulan/tahun
         {
             var generatedNo = "";
             var date = DateTime.Now;
-            var lastSPKDoc = dbContext.SPKDocs.OrderByDescending(entity => entity.Id).FirstOrDefault(entity => entity.PackingList.Contains("BTS-FN"));
+            var lastSPKDoc = dbContext.SPKDocs.OrderByDescending(entity => entity.Id).FirstOrDefault(entity => entity.PackingList.Contains("SHM-FN"));
             string lastPackingListCode = "";
 
             if (lastSPKDoc != null)
@@ -428,11 +428,11 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                 int nomorUrut = int.Parse(code.ElementAt(0));
                 nomorUrut++;
 
-                generatedNo = $"{nomorUrut.ToString("0000")}/BTS-FN/{date.ToString("MM")}/{date.ToString("yy")}";
+                generatedNo = $"{nomorUrut.ToString("0000")}/SHM-FN/{date.ToString("MM")}/{date.ToString("yy")}";
             }
             else
             {
-                generatedNo = $"0001/BTS-FN/{date.ToString("MM")}/{date.ToString("yy")}";
+                generatedNo = $"0001/SHM-FN/{date.ToString("MM")}/{date.ToString("yy")}";
             }
 
             return generatedNo;
