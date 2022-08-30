@@ -1,0 +1,10 @@
+FROM microsoft/aspnetcore-build:2.0.2
+WORKDIR /app
+
+COPY Com.Shamiraa.Service.Warehouse.Lib/*.csproj ./Com.Shamiraa.Service.Warehouse.Lib/
+COPY Com.Shamiraa.Service.Warehouse.WebApi/*.csproj ./Com.Shamiraa.Service.Warehouse.WebApi/
+RUN dotnet restore ./Com.Shamiraa.Service.Warehouse.WebApi/
+
+COPY Com.Shamiraa.Service.Warehouse.Lib/. ./Com.Shamiraa.Service.Warehouse.Lib/
+COPY Com.Shamiraa.Service.Warehouse.WebApi/. ./Com.Shamiraa.Service.Warehouse.WebApi/
+RUN dotnet publish ./Com.Shamiraa.Service.Warehouse.WebApi/ --output /out/ --configuration Release
