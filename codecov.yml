@@ -1,0 +1,4 @@
+ignore:
+  - "Com.Shamiraa.Service.Warehouse.Lib/Migrations" 
+  - "Com.Shamiraa.Service.Warehouse.WebApi/Startup.cs"
+  - "Com.Shamiraa.Service.Warehouse.WebApi/SchedulerJobs/MasterRegistry.cs"
