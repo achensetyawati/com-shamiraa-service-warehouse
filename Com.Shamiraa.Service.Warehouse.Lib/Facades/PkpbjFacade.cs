@@ -370,11 +370,14 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             // Currency currency = null;
             //Uom uom = null;
 
-            foreach (SPKDocsCsvViewModel productVM in Data.Where(s=>s.PackingList.Contains("SHM")))
+            foreach (SPKDocsCsvViewModel productVM in Data)
             {
                 ErrorMessage = "";
-
-                if (string.IsNullOrWhiteSpace(productVM.PackingList))
+				if (!(productVM.PackingList.Contains("SHM")))
+				{
+					ErrorMessage = string.Concat(ErrorMessage, "Format Packing List harus 'xxxx/SHM-FN/xx/xx, ");
+				}
+				if (string.IsNullOrWhiteSpace(productVM.PackingList))
                 {
                     ErrorMessage = string.Concat(ErrorMessage, "PackingList tidak boleh kosong, ");
                 }
