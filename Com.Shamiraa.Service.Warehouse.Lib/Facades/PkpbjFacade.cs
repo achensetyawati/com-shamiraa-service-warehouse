@@ -370,7 +370,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             // Currency currency = null;
             //Uom uom = null;
 
-            foreach (SPKDocsCsvViewModel productVM in Data)
+            foreach (SPKDocsCsvViewModel productVM in Data.Where(s=>s.PackingList.Contains("SHM")))
             {
                 ErrorMessage = "";
 
