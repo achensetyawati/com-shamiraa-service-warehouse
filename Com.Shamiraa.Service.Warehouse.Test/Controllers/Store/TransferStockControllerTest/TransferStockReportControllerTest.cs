@@ -80,7 +80,7 @@ namespace Com.Shamiraa.Service.Warehouse.Test.Controllers.Store.TransferStockCon
         public TransferOutDoc GetTestData(WarehouseDbContext dbContext)
         {
             SPKDocs data = new SPKDocs();
-            data.Reference = "SHM-KB/RTT";
+            data.Reference = "ALS-KB/RTT";
             data.CreatedBy = "unittestusername";
             data.Id = 1;
             data.SourceCode = "GDG.01";

@@ -76,7 +76,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                                                          //join d in dbContext.SPKDocsItems on c.Id equals d.SPKDocsId
                                                          join f in dbContext.ExpeditionItems on a.Code equals f.Reference
                                                          join g in dbContext.Expeditions on f.ExpeditionId equals g.Id
-                                                         where a.Code.Contains("SHM-KB/RTU")
+                                                         where a.Code.Contains("ALS-KB/RTU")
                                                         select new TransferOutReadViewModel
                                                         {
                                                             _id = (int)a.Id,
@@ -152,7 +152,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             {
                 try
                 {
-                    string codeOut = GenerateCode("SHM-KB/RTU");
+                    string codeOut = GenerateCode("ALS-KB/RTU");
                     model2.Code = codeOut;
                     model2.Date = DateTimeOffset.Now;
                     List<ExpeditionItem> expeditionItems = new List<ExpeditionItem>();
@@ -186,7 +186,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
                     SPKDocs sPKDocs = new SPKDocs
                     {
-                        Code = GenerateCode("SHM-PK/PBJ"),
+                        Code = GenerateCode("ALS-PK/PBJ"),
                         Date = DateTimeOffset.Now,
                         IsDistributed = true,
                         IsDraft = false,
@@ -194,7 +194,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                         DestinationCode = model2.DestinationCode,
                         DestinationId = model2.DestinationId,
                         DestinationName = model2.DestinationName,
-                        PackingList = GenerateCode("SHM-KB/PLR"),
+                        PackingList = GenerateCode("ALS-KB/PLR"),
                         Password = String.Join("", GenerateCode(DateTime.Now.ToString("dd")).Split("/")),
                         Reference = codeOut,
                         SourceCode = model2.SourceCode,
@@ -290,7 +290,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
                     Expedition expedition = new Expedition
                     {
-                        Code = GenerateCode("SHM-KB/EXP"),
+                        Code = GenerateCode("ALS-KB/EXP"),
                         Date = DateTimeOffset.Now,
                         ExpeditionServiceCode = model.expeditionService.code,
                         ExpeditionServiceId = (int)model.expeditionService._id,
