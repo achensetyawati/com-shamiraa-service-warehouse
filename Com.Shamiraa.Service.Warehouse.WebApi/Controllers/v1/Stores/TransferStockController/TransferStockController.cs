@@ -18,7 +18,7 @@ namespace Com.Shamiraa.Service.Warehouse.WebApi.Controllers.v1.Stores.TransferSt
 {
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/stores/shm-kb-rtt")]
+    [Route("v{version:apiVersion}/stores/ALS-kb-rtt")]
     [Authorize]
     public class TransferStockController : Controller
     {
