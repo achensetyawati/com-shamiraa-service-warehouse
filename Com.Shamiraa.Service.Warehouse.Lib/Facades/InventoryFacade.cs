@@ -658,7 +658,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
             conn.Open();
             SqlCommand command = new SqlCommand(
-                "SELECT[After], a.CreatedUtc,[Before], a.[Date],[ItemArticleRealizationOrder],[ItemCode],[ItemDomesticSale],[ItemInternationalSale],[ItemName] " +
+                "SELECT[After], a.CreatedUtc,[Before],  CONVERT(Date, a.Date) Date,[ItemArticleRealizationOrder],[ItemCode],[ItemDomesticSale],[ItemInternationalSale],[ItemName] " +
                 ",[ItemSize],[ItemUom],[Quantity], a.[Reference], a.[Remark],[StorageCode],[StorageId],[StorageName],[Type]" +
                 ", case when type = 'IN' then(select top 1 SourceName from TransferInDocs where isdeleted = 0) " +
                 "		else (select top 1 SourceName from TransferOutDocs where isdeleted = 0) end as SourceName" +
@@ -678,18 +678,18 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                         ItemCode = reader["ItemCode"].ToString(),
                         ItemName = reader["ItemName"].ToString(),
                         ItemArticleRealizationOrder = reader["ItemArticleRealizationOrder"].ToString(),
-                        ItemSize = reader["ItemName"].ToString(),
-                        ItemUom = reader["ItemName"].ToString(),
+                        ItemSize = reader["ItemSize"].ToString(),
+                        ItemUom = reader["ItemUom"].ToString(),
                         ItemDomesticSale = Convert.ToDouble(reader["ItemDomesticSale"]),
                         Quantity = reader["Type"].ToString() == "OUT" ? -Convert.ToInt32(reader["Quantity"]) : Convert.ToInt32(reader["Quantity"]),
                         Before = Convert.ToDouble(reader["Before"]),
                         After = Convert.ToDouble(reader["After"]),
                         Type = reader["Type"].ToString(),
-                        Reference = reader["ItemName"].ToString(),
-                        Remark = reader["ItemName"].ToString(),
+                        Reference = reader["Reference"].ToString(),
+                        Remark = reader["Remark"].ToString(),
                         StorageId = Convert.ToInt32(reader["StorageId"]),
-                        StorageCode = reader["ItemName"].ToString(),
-                        StorageName = reader["ItemName"].ToString(),
+                        StorageCode = reader["StorageCode"].ToString(),
+                        StorageName = reader["StorageName"].ToString(),
                         CreatedUtc = (Convert.ToDateTime(reader["CreatedUtc"])),
                         SourceName = reader["SourceName"].ToString(),
                         DestinationName = reader["DestinationName"].ToString()
