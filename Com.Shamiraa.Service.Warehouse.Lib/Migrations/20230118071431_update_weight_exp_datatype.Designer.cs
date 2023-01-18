@@ -11,9 +11,10 @@ using System;
 namespace Com.Shamiraa.Service.Warehouse.Lib.Migrations
 {
     [DbContext(typeof(WarehouseDbContext))]
-    partial class WarehouseDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230118071431_update_weight_exp_datatype")]
+    partial class update_weight_exp_datatype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
