@@ -196,7 +196,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
             {
                 try
                 {
-                    string code = GenerateCode("ALS-TB/BBT");
+                    string code = GenerateCode("SHM-TB/BBT");
                     model.Code = code;
                     var SPK = dbContext.SPKDocs.Where(x => x.PackingList == model.Reference).Single();
                     var ExpItem = dbContext.ExpeditionItems.Where(x => x.SPKDocsId == SPK.Id).Single();

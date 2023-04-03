@@ -71,7 +71,7 @@ namespace Com.Shamiraa.Service.Warehouse.Test.DataUtils.SPKDocDataUtils
 				IsDistributed = false,
 				IsDraft = false,
 				IsReceived = false,
-				PackingList = "ALS-FN",
+				PackingList = "SHM-FN",
 				Password = "password",
 				SourceCode = "SourceCode",
 				SourceId = 1,
@@ -139,7 +139,7 @@ namespace Com.Shamiraa.Service.Warehouse.Test.DataUtils.SPKDocDataUtils
 					SourceId = 1,
 					SourceName = "SourceName",
 					Weight = 1,
-					Reference = "ALS-KB/RTT",
+					Reference = "SHM-KB/RTT",
 					Items = new List<SPKDocsItem>
 				{
 					new SPKDocsItem

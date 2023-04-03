@@ -207,7 +207,7 @@ namespace Com.Shamiraa.Service.Warehouse.Test.Facades.PkpbjFacades
 			viewModel.articleRealizationOrder = "Ro";
 			viewModel.domesticCOGS = 0;
 			viewModel.domesticSale = 0;
-			viewModel.PackingList = "ALS-FN";
+			viewModel.PackingList = "SHM-FN";
 			viewModel.Password = "1";
 			viewModel.size = "S";
 			viewModel.uom = "Pcs";

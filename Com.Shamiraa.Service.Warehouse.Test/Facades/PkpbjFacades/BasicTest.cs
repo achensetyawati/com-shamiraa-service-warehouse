@@ -177,7 +177,7 @@ namespace Com.Shamiraa.Service.Warehouse.Test.Facades.PkpbjFacades
 		{
 			Com.Shamiraa.Service.Warehouse.Lib.Facades.PkpbjFacade facade = new Com.Shamiraa.Service.Warehouse.Lib.Facades.PkpbjFacade(GetServiceProvider().Object, _dbContext(GetCurrentMethod()));
 			var model = await dataUtil(facade, GetCurrentMethod()).GetTestDataUpload();
-			model.PackingList = "ALS-FN";
+			model.PackingList = "SHM-FN";
 			var Response = facade.ReadForUploadNew(1,25,"{}","","");
 			Assert.Empty(Response.Item1);
 		}

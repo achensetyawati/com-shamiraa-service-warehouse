@@ -72,7 +72,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
                              && a.Date.AddHours(offset).Date >= DatEVRom.Date
                              && a.Date.AddHours(offset).Date <= DateTo.Date
                              && a.Code.Contains(string.IsNullOrWhiteSpace(code) ? a.Code : code)
-                             && b.Reference.Contains("ALS-KB/RTT")
+                             && b.Reference.Contains("SHM-KB/RTT")
                              && b.DestinationName != "GUDANG TRANSFER STOCK"
                              && b.IsReceived == (status.Equals("Semua") ? b.IsReceived : (status.Equals("Belum Diterima") ? false : true)) 
 
@@ -132,13 +132,13 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
             {
                 try
                 {
-                    string codeOut = GenerateCode("ALS-KB/RTT");
-                    string packingList1 = GenerateCode("ALS-KB/PLR");
-                    string CodeIn = GenerateCode("ALS-TB/BRT");
-                    string packingList2 = GenerateCode("ALS-KB/PLB");
-                    string expCode = GenerateCode("ALS-KB/EXP");
-                    string expCode2 = GenerateCode("ALS-KB/EXP");
-                    string codetransferin = GenerateCode("ALS-TB/BRT");
+                    string codeOut = GenerateCode("SHM-KB/RTT");
+                    string packingList1 = GenerateCode("SHM-KB/PLR");
+                    string CodeIn = GenerateCode("SHM-TB/BRT");
+                    string packingList2 = GenerateCode("SHM-KB/PLB");
+                    string expCode = GenerateCode("SHM-KB/EXP");
+                    string expCode2 = GenerateCode("SHM-KB/EXP");
+                    string codetransferin = GenerateCode("SHM-TB/BRT");
                     model2.Code = codeOut;
                     model2.Date = DateTimeOffset.Now;
                     var storages = GetStorage("GDG.05");
@@ -257,7 +257,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
 
                     SPKDocs sPKDocs1 = new SPKDocs
                     {
-                        Code = GenerateCode("ALS-PK/PBJ"),
+                        Code = GenerateCode("SHM-PK/PBJ"),
                         Date = DateTimeOffset.Now,
                         SourceId = model2.SourceId,
                         SourceCode = model2.SourceCode,
@@ -299,7 +299,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
 
                     SPKDocs sPKDocs2 = new SPKDocs
                     {
-                        Code = GenerateCode("ALS-PK/PBJ"),
+                        Code = GenerateCode("SHM-PK/PBJ"),
                         Date = DateTimeOffset.Now,
                         DestinationId = model2.DestinationId,
                         DestinationCode = model2.DestinationCode,
@@ -672,7 +672,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
         {
             var Query =  from a in dbContext.TransferOutDocs
                          join b in dbContext.SPKDocs on a.Code equals b.Reference
-                         where a.Code.Contains("ALS-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
+                         where a.Code.Contains("SHM-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
                          orderby a.Date descending
                          select new TransferStockViewModel
                          {
@@ -711,7 +711,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.Stores
             var Query = from a in dbContext.TransferOutDocs
                         join b in dbContext.SPKDocs on a.Code equals b.Reference
                         join c in dbContext.TransferOutDocItems on a.Id equals c.TransferOutDocsId
-                        where a.Code.Contains("ALS-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
+                        where a.Code.Contains("SHM-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
                         && a.Id == id
                         select new 
                         {

@@ -63,11 +63,11 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.AdjustmentFacade
             {
                 try
                 {
-                    string code = GenerateCode("ALS-ADJ/INT");
+                    string code = GenerateCode("SHM-ADJ/INT");
                     var storages = GetStorage(model.StorageCode);
 
-                    string inventoryMovementIn = GenerateCode("ALS-TB/ADJ");
-                    string inventoryMovementOut = GenerateCode("ALS-KB/ADJ");
+                    string inventoryMovementIn = GenerateCode("SHM-TB/ADJ");
+                    string inventoryMovementOut = GenerateCode("SHM-KB/ADJ");
 
                     List<TransferInDocItem> transferInDocsItems = new List<TransferInDocItem>();
                     List<InventoryMovement> inventoryMovements = new List<InventoryMovement>();
@@ -389,7 +389,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades.AdjustmentFacade
         //{
         //    var Query = from a in dbContext.TransferOutDocs
         //               join b in dbContext.SPKDocs on a.Code equals b.Reference
-        //               where a.Code.Contains("ALS-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
+        //               where a.Code.Contains("SHM-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
         //               select new TransferStockViewModel
         //               {
         //                   id = (int)a.Id,
