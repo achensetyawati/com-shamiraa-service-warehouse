@@ -38,7 +38,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
         public Tuple<List<TransferInDoc>, int, Dictionary<string, string>> Read(int Page = 1, int Size = 25, string Order = "{}", string Keyword = null, string Filter = "{}")
         {
-            //IQueryable<TransferInDoc> Query = this.dbSet.Include(m => m.Items).Where(m => m.Reference.Contains("ALS-FN"));
+            //IQueryable<TransferInDoc> Query = this.dbSet.Include(m => m.Items).Where(m => m.Reference.Contains("SHM-FN"));
             IQueryable<TransferInDoc> Query = this.dbSet.Include(m => m.Items).OrderByDescending(x => x.Date);
 
             List<string> searchAttributes = new List<string>()
@@ -85,7 +85,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             {
                 try
                 {
-                    string code = GenerateCode("ALS-TB/BBP");
+                    string code = GenerateCode("SHM-TB/BBP");
                     model.Code = code;
 
 

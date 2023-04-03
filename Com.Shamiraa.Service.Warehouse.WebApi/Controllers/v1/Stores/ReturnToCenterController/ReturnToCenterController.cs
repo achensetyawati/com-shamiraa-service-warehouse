@@ -18,7 +18,7 @@ namespace Com.Shamiraa.Service.Warehouse.WebApi.Controllers.v1.Stores.ReturnToCe
 {
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/stores/ALS-kb-rtp")]
+    [Route("v{version:apiVersion}/stores/SHM-kb-rtp")]
     [Authorize]
     public class ReturnToCenterController : Controller
     {

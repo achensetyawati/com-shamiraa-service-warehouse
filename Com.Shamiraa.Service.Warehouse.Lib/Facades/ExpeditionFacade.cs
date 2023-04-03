@@ -90,7 +90,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                              && a.Date.AddHours(offset).Date >= DateFrom.Date
                              && a.Date.AddHours(offset).Date <= DateTo.Date
                              && b.IsReceived == status
-                             && (transaction == 0 ? (!b.Reference.Contains("ALS-KB/RTP") && !b.Reference.Contains("ALS-KB/RTU")) : (b.Reference.Contains("ALS-KB/RTP") || b.Reference.Contains("ALS-KB/RTU")))
+                             && (transaction == 0 ? (!b.Reference.Contains("SHM-KB/RTP") && !b.Reference.Contains("SHM-KB/RTU")) : (b.Reference.Contains("SHM-KB/RTP") || b.Reference.Contains("SHM-KB/RTU")))
                              && b.PackingList.Contains(string.IsNullOrWhiteSpace(packingList) ? b.PackingList : packingList)
 
                          select new ExpeditionReportViewModel
@@ -218,7 +218,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                 try
                 {
                     double totalweight = 0;
-                    string code = GenerateCode("ALS-KB/EXP");
+                    string code = GenerateCode("SHM-KB/EXP");
                     
                     model.Code = code;
                     model.Date = DateTimeOffset.Now;
@@ -227,7 +227,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                         TransferOutDoc transferOutDoc = new TransferOutDoc();
                         i.Id = 0;
                         totalweight += i.Weight;
-                        string CodeTransferOut = GenerateCode("ALS-KB/EXP");
+                        string CodeTransferOut = GenerateCode("SHM-KB/EXP");
                         var SPK = dbContext.SPKDocs.Where(x => x.PackingList == i.PackingList).Single();
                         SPK.IsDistributed = true;
                         transferOutDoc.Code = CodeTransferOut;

@@ -214,7 +214,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
             SODocsViewModel soDocs = new SODocsViewModel
             {
-                code = GenerateCode("ALS-SO/INT"),
+                code = GenerateCode("SHM-SO/INT"),
                 storage = new StorageViewModel
                 {
                     _id = storages.Id,
@@ -241,8 +241,8 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                     var model = dbContext.StockOpnameDocs.Where(x => x.Id == viewModel.Id).FirstOrDefault();
                     model.IsProcessed = true;
                     
-                    string inventoryMovementIn = GenerateCode("ALS-TB/SO");
-                    string inventoryMovementOut = GenerateCode("ALS-KB/SO");
+                    string inventoryMovementIn = GenerateCode("SHM-TB/SO");
+                    string inventoryMovementOut = GenerateCode("SHM-KB/SO");
 
                     List<TransferInDocItem> transferInDocsItems = new List<TransferInDocItem>();
                     List<InventoryMovement> inventoryMovements = new List<InventoryMovement>();
@@ -565,7 +565,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         //{
         //    var Query = from a in dbContext.TransferOutDocs
         //               join b in dbContext.SPKDocs on a.Code equals b.Reference
-        //               where a.Code.Contains("ALS-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
+        //               where a.Code.Contains("SHM-KB/RTT") && b.DestinationName != "GUDANG TRANSFER STOCK"
         //               select new TransferStockViewModel
         //               {
         //                   id = (int)a.Id,

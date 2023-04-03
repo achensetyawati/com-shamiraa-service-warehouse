@@ -291,7 +291,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
                     SPKDocs data = new SPKDocs()
                     {
-                        Code = GenerateCode("ALS-PK/PBJ"),
+                        Code = GenerateCode("SHM-PK/PBJ"),
                         Date = viewModel.FinishingOutDate,
                         DestinationId = (long)viewModel.DestinationStorageId,
                         DestinationCode = viewModel.DestinationStorageCode,
@@ -418,7 +418,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         {
             var generatedNo = "";
             var date = DateTime.Now;
-            var lastSPKDoc = dbContext.SPKDocs.OrderByDescending(entity => entity.Id).FirstOrDefault(entity => entity.PackingList.Contains("ALS-FN"));
+            var lastSPKDoc = dbContext.SPKDocs.OrderByDescending(entity => entity.Id).FirstOrDefault(entity => entity.PackingList.Contains("SHM-FN"));
             string lastPackingListCode = "";
 
             if (lastSPKDoc != null)
