@@ -19,7 +19,7 @@ namespace Com.Shamiraa.Service.Warehouse.WebApi.Controllers.v1.ExpeditionControl
 {
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    [Route("v{version:apiVersion}/ALS-kb-exp")]
+    [Route("v{version:apiVersion}/shm-kb-exp")]
     [Authorize]
     public class ExpeditionController : Controller
     {
