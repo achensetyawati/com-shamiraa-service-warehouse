@@ -375,7 +375,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                 ErrorMessage = "";
 				if (!(productVM.PackingList.Contains("SHM")))
 				{
-					ErrorMessage = string.Concat(ErrorMessage, "Format Packing List harus 'xxxx/ALS-FN/xx/xx, ");
+					ErrorMessage = string.Concat(ErrorMessage, "Format Packing List harus 'xxxx/SHM-FN/xx/xx, ");
 				}
 				if (string.IsNullOrWhiteSpace(productVM.PackingList))
                 {

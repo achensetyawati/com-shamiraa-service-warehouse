@@ -414,7 +414,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         //    return Inserted;
         //}
 
-        public string GeneratePackingList() // nomor urut/ALS-FN/bulan/tahun
+        public string GeneratePackingList() // nomor urut/SHM-FN/bulan/tahun
         {
             var generatedNo = "";
             var date = DateTime.Now;
@@ -428,11 +428,11 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                 int nomorUrut = int.Parse(code.ElementAt(0));
                 nomorUrut++;
 
-                generatedNo = $"{nomorUrut.ToString("0000")}/ALS-FN/{date.ToString("MM")}/{date.ToString("yy")}";
+                generatedNo = $"{nomorUrut.ToString("0000")}/SHM-FN/{date.ToString("MM")}/{date.ToString("yy")}";
             }
             else
             {
-                generatedNo = $"0001/ALS-FN/{date.ToString("MM")}/{date.ToString("yy")}";
+                generatedNo = $"0001/SHM-FN/{date.ToString("MM")}/{date.ToString("yy")}";
             }
 
             return generatedNo;
