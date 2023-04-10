@@ -226,10 +226,12 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                     {
                         TransferOutDoc transferOutDoc = new TransferOutDoc();
                         i.Id = 0;
+                       
                         totalweight += i.Weight;
                         string CodeTransferOut = GenerateCode("SHM-KB/EXP");
                         var SPK = dbContext.SPKDocs.Where(x => x.PackingList == i.PackingList).Single();
                         SPK.IsDistributed = true;
+                        i.SPKDocsId = Convert.ToInt32(SPK.Id);
                         transferOutDoc.Code = CodeTransferOut;
                         transferOutDoc.Reference = model.Code;
                         transferOutDoc.DestinationId = i.DestinationId;
@@ -243,6 +245,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
                         foreach (var d in i.Details)
                         {
                             d.Id = 0;
+                            d.SPKDocsId = Convert.ToInt32(SPK.Id);
                             var inven = dbContext.Inventories.Where(x => x.ItemArticleRealizationOrder == d.ArticleRealizationOrder && x.ItemCode == d.ItemCode && x.ItemName == d.ItemName && x.StorageId == i.SourceId).Single();
 
                             InventoryMovement movement = new InventoryMovement
