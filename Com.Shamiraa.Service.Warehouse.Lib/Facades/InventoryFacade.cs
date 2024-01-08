@@ -655,7 +655,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
         public IQueryable<InventoryMovementsMonthlyReportViewModel> GetMovementByDateQuery(DateTime firstDay, DateTime lastDay)
         {
-            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
             conn.Open();
             SqlCommand command = new SqlCommand(
                 "SELECT[After], a.CreatedUtc,[Before],  CONVERT(Date, a.Date) Date,[ItemArticleRealizationOrder],[ItemCode],[ItemDomesticSale],[ItemInternationalSale],[ItemName] " +
@@ -1637,7 +1637,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             //IConfiguration _configuration = builder.Build();
             //var myConnectionString1 = _configuration.GetConnectionString("DefaultConnection");
             //SqlConnection conn = new SqlConnection(myConnectionString1);
-            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
             if (SelectedQuantity == "0")
             {
                 SelectedQuantity = "= 0";
@@ -1787,7 +1787,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             //IConfiguration _configuration = builder.Build();
             //var myConnectionString1 = _configuration.GetConnectionString("DefaultConnection");
             //SqlConnection conn = new SqlConnection(myConnectionString1);
-            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
 
             conn.Open();
             if (storageId != "0")
@@ -1940,7 +1940,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
             DateTime _dateTo = dateTo == new DateTime(0001, 1, 1) ? DateTime.Now : dateTo;
             var Query = GetStockByPeriodQuery(storageId, _dateTo, "paging", page, size);
 
-            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
             conn.Open();
             var totalQuery = "SELECT Count( ItemCode) as count FROM [InventoryMovements] a " +
                 "WHERE Lastmodifiedutc = (SELECT MAX(Lastmodifiedutc) FROM[InventoryMovements] WHERE itemcode = a.itemcode and StorageCode=a.StorageCode) " +
@@ -1966,7 +1966,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
         }
         public IQueryable<InventoryByPeriodReportViewModel> GetStockByPeriodQuery(string storageId, DateTime dateTo, string type, int page = 1, int size = 100)
         {
-            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection conn = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-warehouse;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
             conn.Open();
 
             string query = "SELECT ItemCode, after Quantity, storagename as location, type, CONVERT(varchar, LastModifiedUtc, 111) as ReceivedDate " +
@@ -2020,7 +2020,7 @@ namespace Com.Shamiraa.Service.Warehouse.Lib.Facades
 
             conn.Close();
             var itemcode = "(" + string.Join(",", itemcodes) + ")";
-            SqlConnection connCore = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-core;User=shamiraaprd;password=shamiraa123.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
+            SqlConnection connCore = new SqlConnection("Server=shamiraa-db-server.database.windows.net,1433;Database=shamiraa-db-core;User=shamiraaprd;password=Mira098.;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=true");
 
             string itemQuery = "SELECT Code, ArticleRealizationOrder, CategoryDocName, CollectionDocName,  Name, ColorDocName, " +
                 "CounterDocName, DomesticSale, DomesticCOGS, DomesticRetail, SeasonDocName, Size, StyleDocName, " +
